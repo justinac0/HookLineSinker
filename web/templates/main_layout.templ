@@ -11,7 +11,9 @@ templ MainLayout(title string) {
          <title>{ title }</title>
     </head>
     <body>
-        { children... }
+        <main class="crt">
+            { children... }
+        </main>
     </body>
     </html>
 }
