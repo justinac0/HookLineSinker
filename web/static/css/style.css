@@ -4,3 +4,37 @@ body {
     background-color: black;
     color: white;
 }
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+#monitor {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-height: 100vh;
+}
+
+#content {
+    margin: 10%;
+}
+
+a {
+    font-weight: bolder;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+a:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
