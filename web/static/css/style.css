@@ -1,3 +1,7 @@
+a, p, h1, h2, h3, h4, h5, h6 {
+  z-index: 1000;
+}
+
 body {
     font-family: monospace;
     font-size: xx-large;
@@ -35,8 +39,8 @@ img {
   opacity: 0.75;
 }
 
-#monitor, #content {  
-  position: fixed;
+#monitor, #content {
+  position: absolute;
   top: 0;
   left: 0;
 }
@@ -44,15 +48,16 @@ img {
 #monitor {
   width: 800px;
   height: 600px;
-  z-index: -1;
+  z-index: 50;
 }
 
 #content {
   margin-left: 96px;
   margin-top: 64px;
   width: 620px;
-  max-height: 465px;
+  max-height: 460px;
   overflow: scroll;
+  z-index: 1000;
 }
 
 a {
