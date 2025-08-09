@@ -9,9 +9,7 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Static("static/css", "web/static/css")
-	e.Static("static/img", "web/static/img")
-	e.Static("static/js", "web/static/js")
+	e.Static("static/", "web/static/")
 
 	handlers.Setup(e)
 

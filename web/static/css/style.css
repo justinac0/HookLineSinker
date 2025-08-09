@@ -5,22 +5,18 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-}
 
-
-
-.crt {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to top, #000, #000, #333, #333);
     background-size: cover;
     background-size: 100% 5px;
-    color: #00afff;
+    color: #00ff00;
     font-family: 'Courier New', monospace;
-    text-shadow: 0 0 10px #00afff;
+    text-shadow: 0 0 10px #00ff00;
     display: flex;
     flex-direction: column;
-    filter: blur(0.8);
+    filter: blur(0.8px);
     border-radius: 20px;
     font-size: large;
     align-items: center;
@@ -40,7 +36,7 @@ img {
 }
 
 #monitor, #content {  
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -55,7 +51,7 @@ img {
   margin-left: 96px;
   margin-top: 64px;
   width: 620px;
-  max-height: 480px;
+  max-height: 465px;
   overflow: scroll;
 }
 
@@ -63,11 +59,11 @@ a {
     font-weight: bolder;
     text-decoration: none;
     text-transform: uppercase;
-    color: #00afff;
+    color: #00ff00;
 }
 
 a:hover {
-    background-color: #00afff;
+    background-color: #00ff00;
     color: black;
     cursor: pointer;
 }
@@ -100,9 +96,20 @@ button {
   font-weight: bolder;
 }
 
+input[type=text] {
+  background-color: #00000000;
+  border: 1px solid #00ff00;
+}
+
+input[type=text]:focus {
+  outline: none;
+  box-shadow: none;
+  border: 2px solid #00ff4c;
+}
+
 @media screen{
-  .crt {
-    animation: scanlines infinite 2s linear;
+  body {
+    animation: scanlines infinite 1s linear;
   }
 } 
 @keyframes scanlines {
