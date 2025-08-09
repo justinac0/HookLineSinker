@@ -49,6 +49,8 @@ func renderTemplate(ctx echo.Context, component templ.Component) error {
 }
 
 func Setup(e *echo.Echo) {
+	addition := GenerateArithmeticQuestions()
+
 	e.GET("/", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Index())
 	})
@@ -63,11 +65,8 @@ func Setup(e *echo.Echo) {
 
 	e.GET("/catch", func(ctx echo.Context) error {
 		fmt.Println("catching")
-		return renderTemplate(ctx, templates.ArithmeticQuestions())
+		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
 	})
-
-	addition := GenerateArithmeticQuestions()
-	fmt.Println("addition questions:", addition)
 
 	e.GET("/fight", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
