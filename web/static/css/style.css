@@ -6,6 +6,11 @@ a, p, h1, h2, h3, h4, h5, h6 {
   z-index: 1005;
   opacity: 0.5;
   font-weight: bold;
+
+  text-shadow:
+    -2px 0px 0px rgba(255, 0, 0, 0.7), /* Red channel, slightly offset left */
+    2px 0px 0px rgba(0, 255, 0, 0.7),  /* Green channel, slightly offset right */
+    0px 2px 0px rgba(0, 0, 255, 0.7);   /* Blue channel, slightly offset down */
 }
 
 b {
