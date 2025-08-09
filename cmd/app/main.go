@@ -14,5 +14,5 @@ func main() {
 	handlers.Setup(e)
 
 	e.HideBanner = true
-	e.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start("127.0.0.1:3000"))
 }
