@@ -19,4 +19,22 @@ func Setup(e *echo.Echo) {
 	e.GET("/waiting", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Waiting())
 	})
+<<<<<<< Updated upstream
+=======
+
+	e.GET("/bite", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
+	e.GET("/fight", func(ctx echo.Context) error {
+		return renderTemplate(ctx, templates.ArithmeticQuestions())
+	})
+	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
+	e.GET("/result/:fish/:pass", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+>>>>>>> Stashed changes
 }

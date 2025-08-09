@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Index() templ.Component {
+func ArithmeticQuestions() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -41,17 +41,13 @@ func Index() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-<<<<<<< Updated upstream
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><h1>HookLineSinker</h1><p>Get an offishal education!</p><a href=\"/waiting\">Play</a></div><img id=\"monitor\" src=\"static/img/monitor.png\" alt=\"monitor\">")
-=======
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><h1>HookLineSinker</h1><h2>by team Ichthys</h2><p>Get an of(fish)al education!</p><a href=\"/waiting\">Play</a><br><img class=\"img-opaque\" src=\"static/img/smart_fish.png\" width=\"96px\" height=\"auto\"></div><img id=\"monitor\" src=\"static/img/monitor.png\" alt=\"monitor\">")
->>>>>>> Stashed changes
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form><h2>Arithmetic</h2><div><h3>Addition</h3><nav><ol>12+4=</ol><ol>45+27=</ol><ol>103+89=</ol></nav></div><div><h3>Subtraction</h3><nav><ol>56-18=</ol><ol>90-47=</ol><ol>150-83=</ol></nav></div><div><h3>Multiplication</h3><nav><ol>7×8=</ol><ol>13×6=</ol><ol>25×4=</ol></nav></div><div><h3>Division</h3><nav><ol>56÷8=</ol><ol>144÷12=</ol><ol>225÷15=</ol></nav></div></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = MainLayout("HookLineSinker").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = MainLayout("Arithmetic").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
