@@ -15,4 +15,8 @@ func Setup(e *echo.Echo) {
 	e.GET("/", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Index())
 	})
+
+	e.GET("/waiting", func(ctx echo.Context) error {
+		return renderTemplate(ctx, templates.Waiting())
+	})
 }
