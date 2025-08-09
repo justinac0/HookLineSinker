@@ -131,6 +131,10 @@ button:focus, input[type=text]:focus {
   font-weight: bolder;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @media screen{
   .crt {
     animation: scanlines infinite 1s linear;
