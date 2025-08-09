@@ -13,12 +13,25 @@ import (
 )
 
 func GenerateArithmeticQuestions() *questions.Grouping {
-	arithmeticQuestions := questions.NewGrouping("Addition")
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("12+4", "16"))
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("45+27", "72"))
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("103+89", "192"))
+	qs := questions.NewGrouping("Addition")
+	qs.Add(arithmetic.NewArithmeticQuestion("45+37", "82"))
+	qs.Add(arithmetic.NewArithmeticQuestion("102-68", "34"))
+	qs.Add(arithmetic.NewArithmeticQuestion("14×7", "98"))
+	qs.Add(arithmetic.NewArithmeticQuestion("144÷12", "12"))
+	qs.Add(arithmetic.NewArithmeticQuestion("58+26", "84"))
+	qs.Add(arithmetic.NewArithmeticQuestion("300-175", "125"))
+	qs.Add(arithmetic.NewArithmeticQuestion("9×9", "81"))
+	qs.Add(arithmetic.NewArithmeticQuestion("120÷8", "15"))
+	qs.Add(arithmetic.NewArithmeticQuestion("67+45", "112"))
+	qs.Add(arithmetic.NewArithmeticQuestion("500-347", "153"))
+	qs.Add(arithmetic.NewArithmeticQuestion("16×5", "80"))
+	qs.Add(arithmetic.NewArithmeticQuestion("225÷15", "15"))
+	qs.Add(arithmetic.NewArithmeticQuestion("78+99", "177"))
+	qs.Add(arithmetic.NewArithmeticQuestion("250-186", "64"))
+	qs.Add(arithmetic.NewArithmeticQuestion("13×12", "156"))
+	qs.Add(arithmetic.NewArithmeticQuestion("360÷9", "40"))
 
-	return arithmeticQuestions
+	return qs
 }
 
 func renderTemplate(ctx echo.Context, component templ.Component) error {
