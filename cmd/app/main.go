@@ -9,12 +9,10 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Static("static/css", "web/static/css")
-	e.Static("static/img", "web/static/img")
-	e.Static("static/js", "web/static/js")
+	e.Static("static/", "web/static/")
 
 	handlers.Setup(e)
 
 	e.HideBanner = true
-	e.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start("127.0.0.1:3000"))
 }
