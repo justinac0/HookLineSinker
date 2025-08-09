@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"HookLineSinker/web/templates"
+	"net/http"
 
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
@@ -16,7 +17,23 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, templates.Index())
 	})
 
+	e.GET("/casting", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
 	e.GET("/waiting", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Waiting())
+	})
+
+	e.GET("/bite", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
+	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
+	e.GET("/result/:fish/:pass", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
 	})
 }
