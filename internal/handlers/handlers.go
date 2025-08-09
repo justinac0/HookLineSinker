@@ -4,7 +4,7 @@ import (
 	"HookLineSinker/internal/questions"
 	"HookLineSinker/internal/questions/arithmetic"
 	"HookLineSinker/web/templates"
-	"fmt"
+	"math/rand"
 	"net/http"
 	"strings"
 
@@ -48,8 +48,22 @@ func renderTemplate(ctx echo.Context, component templ.Component) error {
 	return component.Render(ctx.Request().Context(), ctx.Response().Writer)
 }
 
+func generateMOTDList() []string {
+	var motdList []string
+	motdList = append(motdList, "some message 1")
+	motdList = append(motdList, "some message 2")
+	motdList = append(motdList, "some message 3")
+	return motdList
+}
+
 func Setup(e *echo.Echo) {
 	addition := GenerateArithmeticQuestions()
+	motdList := generateMOTDList()
+
+	e.GET("/motd", func(ctx echo.Context) error {
+		index := rand.Int() % len(motdList)
+		return ctx.String(http.StatusOK, motdList[index])
+	})
 
 	e.GET("/", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Index())
@@ -64,7 +78,6 @@ func Setup(e *echo.Echo) {
 	})
 
 	e.GET("/catch", func(ctx echo.Context) error {
-		fmt.Println("catching")
 		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
 	})
 

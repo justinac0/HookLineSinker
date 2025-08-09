@@ -3,8 +3,8 @@ package templates
 templ Waiting() {
     @MainLayout("Waiting") {
         <div id="content">
-            <p>waiting for a big fish</p>
-            <p>place image of fishing rod here</p>
+            <p id="motd" hx-get="/motd" hx-trigger="load">[put random motd here]</p>
+            <div id="fish-spawn" style="position: fixed; min-width: 32px; min-height: 32px; z-index: 1001;top:0;left:0;background-color: red;"></div>
         </div>
 
         <div style="position: relative; top: 0; bottom: 0;">

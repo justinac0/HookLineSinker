@@ -1,5 +1,7 @@
 a, p, h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
+  opacity: 0.5;
+  font-weight: bold;
 }
 
 body {
@@ -61,10 +63,11 @@ img {
 }
 
 a {
-    font-weight: bolder;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #00ff00;
+  font-size: larger;
+  font-weight: bolder;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #00ff00;
 }
 
 a:hover {
@@ -82,7 +85,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c6edffa0;
+  background: #00ff0080;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -94,6 +97,7 @@ a:hover {
 }
 
 button {
+  opacity: 0.5;
   background-color: #00000000;
   border: 2px solid #00ff00;
   color: #00ff00;
