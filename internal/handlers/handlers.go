@@ -6,6 +6,7 @@ import (
 	"HookLineSinker/web/templates"
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
@@ -13,9 +14,9 @@ import (
 
 func GenerateArithmeticQuestions() *questions.Grouping {
 	arithmeticQuestions := questions.NewGrouping("Addition")
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("12+4", 16))
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("45+27", 72))
-	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("103+89", 192))
+	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("12+4", "16"))
+	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("45+27", "72"))
+	arithmeticQuestions.Add(arithmetic.NewArithmeticQuestion("103+89", "192"))
 
 	return arithmeticQuestions
 }
@@ -45,14 +46,32 @@ func Setup(e *echo.Echo) {
 	fmt.Println("addition questions:", addition)
 
 	e.GET("/fight", func(ctx echo.Context) error {
-		return renderTemplate(ctx, templates.ArithmeticQuestions())
+		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
 	})
 
 	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
 		return ctx.String(http.StatusOK, "not implemented")
 	})
 
-	e.GET("/result/:fish/:pass", func(ctx echo.Context) error {
-		return ctx.String(http.StatusOK, "not implemented")
+	e.POST("/results", func(ctx echo.Context) error {
+		formValues, _ := ctx.FormParams()
+		passed := true
+		for k, v := range formValues {
+			if len(v) == 0 {
+				passed = false
+				break
+			}
+
+			if strings.Compare(k, v[0]) != 0 {
+				passed = false
+				break
+			}
+		}
+
+		if passed {
+			return ctx.String(http.StatusOK, "passed")
+		} else {
+			return ctx.String(http.StatusOK, "failed")
+		}
 	})
 }

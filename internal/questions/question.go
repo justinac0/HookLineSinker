@@ -2,6 +2,7 @@ package questions
 
 type Question interface {
 	GetQuestion() string
+	GetAnswer() string
 	GradeQuestion() bool
 }
 
@@ -18,6 +19,10 @@ func NewGrouping(title string) *Grouping {
 
 func (g *Grouping) Add(q Question) {
 	g.questions = append(g.questions, q)
+}
+
+func (g *Grouping) GetQuestions() []Question {
+	return g.questions
 }
 
 func (g *Grouping) Print() {
