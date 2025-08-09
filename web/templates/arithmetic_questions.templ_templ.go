@@ -41,7 +41,7 @@ func ArithmeticQuestions() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form><h2>Arithmetic</h2><div><h3>Addition</h3><nav><ol>12+4=</ol><ol>45+27=</ol><ol>103+89=</ol></nav></div><div><h3>Subtraction</h3><nav><ol>56-18=</ol><ol>90-47=</ol><ol>150-83=</ol></nav></div><div><h3>Multiplication</h3><nav><ol>7×8=</ol><ol>13×6=</ol><ol>25×4=</ol></nav></div><div><h3>Division</h3><nav><ol>56÷8=</ol><ol>144÷12=</ol><ol>225÷15=</ol></nav></div></form>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><form><h2>Arithmetic</h2><div><h3>Addition</h3><nav><ol>12+4=<input type=\"text\"></ol><ol>45+27=<input type=\"text\"></ol><ol>103+89=<input type=\"text\"></ol></nav></div><div><h3>Subtraction</h3><nav><ol>56-18=<input type=\"text\"></ol><ol>90-47=<input type=\"text\"></ol><ol>150-83=<input type=\"text\"></ol></nav></div><div><h3>Multiplication</h3><nav><ol>7×8=<input type=\"text\"></ol><ol>13×6=<input type=\"text\"></ol><ol>25×4=<input type=\"text\"></ol></nav></div><div><h3>Division</h3><nav><ol>56÷8=<input type=\"text\"></ol><ol>144÷12=<input type=\"text\"></ol><ol>225÷15=<input type=\"text\"></ol></nav></div><button>Submit</button></form></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
