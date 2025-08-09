@@ -29,7 +29,11 @@ func Setup(e *echo.Echo) {
 		return ctx.String(http.StatusOK, "not implemented")
 	})
 
-	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
+	e.GET("/fight", func(ctx echo.Context) error {
+		return renderTemplate(ctx, templates.ArithmeticQuestions())
+	})
+
+  e.GET("/battle_fish/:id", func(ctx echo.Context) error {
 		return ctx.String(http.StatusOK, "not implemented")
 	})
 
