@@ -136,3 +136,16 @@ button:focus, input[type=text]:focus {
     background-position: 0 -20px;
   }
 }
+
+.fish {
+   width: 196px;
+   height: auto;
+   z-index: 1001;
+   top:200px;
+   left:400px;
+   background-color: #00ff0080;
+}
+
+.fish:hover {
+   background-color: #00ff0090;
+}

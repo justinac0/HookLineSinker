@@ -1,9 +1,11 @@
 package handlers
 
 import (
+	"HookLineSinker/internal/common"
 	"HookLineSinker/internal/questions"
 	"HookLineSinker/internal/questions/arithmetic"
 	"HookLineSinker/web/templates"
+	"HookLineSinker/web/templates/components"
 	"math/rand"
 	"net/http"
 	"strings"
@@ -78,7 +80,9 @@ func Setup(e *echo.Echo) {
 	})
 
 	e.GET("/catch", func(ctx echo.Context) error {
-		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
+		index := rand.Int() % int(common.FishCount-1)
+		fishType := common.FishType(index)
+		return renderTemplate(ctx, components.Fish(fishType))
 	})
 
 	e.GET("/fight", func(ctx echo.Context) error {
