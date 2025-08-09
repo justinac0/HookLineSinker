@@ -1,0 +1,20 @@
+package templates
+
+import (
+    "fmt"
+    "HookLineSinker/internal/questions"
+)
+
+templ ArithmeticQuestions(qgroup *questions.Grouping) {
+    @MainLayout("Arithmetic") {
+        <div id="content">
+            <form hx-post="/results" hx-trigger="submit">
+                <h2>Arithmetic</h2>
+                for i, q := range qgroup.GetQuestions() {
+                    <p id={fmt.Sprintf("%d", i)}>{q.GetQuestion()}=<input type="text" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
+                }
+                <button type="submit">ATTEMPT CATCH</button>
+            </form>
+        </div>
+    }
+}
