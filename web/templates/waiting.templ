@@ -3,7 +3,7 @@ package templates
 templ Waiting() {
     @MainLayout("Waiting") {
         <div id="content">
-            <a href="/">Cancel Fishing Trip</a>
+            <a hx-get="/" hx-target="body" hx-swap="outerHTML" hx-push-url="/">Stop Fishing Trip</a>
             <p id="motd" hx-get="/motd" hx-trigger="load">[put random motd here]</p>
         </div>
 

@@ -54,9 +54,14 @@ func generateMOTDList() []string {
 	var motdList []string
 	motdList = append(motdList, "Whale, whale, whale… the whale shark is the largest fish!")
 	motdList = append(motdList, "Holy mackerel! Some fish can glow in the dark!")
-	motdList = append(motdList, "Shrimply amazing! Some shrimps can see more colors than human")
+	motdList = append(motdList, "Shrimply amazing! Some shrimps can see more colors than humans :o")
 	motdList = append(motdList, "Cod you believe it? Sharks have no bones (except for their teeth)!")
-	motdList = append(motdList, "I bait you did not know that some fishes glow in the dark!")
+	motdList = append(motdList, "I bait you did not know that some fish glow in the dark!")
+	motdList = append(motdList, "Major pikes in productivity!")
+	motdList = append(motdList, "You're krilling it.")
+	motdList = append(motdList, "You are off the scale.")
+	motdList = append(motdList, "Are you fin-ished playing?")
+	motdList = append(motdList, "Now this is reel education :>D")
 	return motdList
 }
 

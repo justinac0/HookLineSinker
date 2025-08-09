@@ -6,10 +6,10 @@ templ Fish(fishType common.FishType) {
     <div class="fish-panel">
     switch fishType {
         case common.MathFish:
-            <p>You have a <b>Math</b> fish on the line!</p>
+            <p>You have an <b>Math</b> fish on the line! <span style="color: rgb(175, 175, 175);">(click to catch)</span></p>
             <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-math.png"/>
         case common.EnglishFish:
-            <p>You have a <b>English</b> Fish on the line!</p>
+            <p>You have an <b>English</b> Fish on the line!  <span style="color: rgb(175, 175, 175);">(click to catch)</span></p>
             <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-english.png"/>
     }
     </div>

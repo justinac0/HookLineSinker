@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 a, p, h1, h2, h3, h4, h5, h6 {
   z-index: 1005;
   opacity: 0.5;
@@ -19,8 +23,6 @@ body {
 }
 
 .crt {
-    width: 800px;
-    height: 600px;
     background: linear-gradient(to top, #000, #000, #333, #333);
     background-size: cover;
     background-size: 100% 5px;
@@ -49,20 +51,28 @@ img {
   opacity: 0.5;
 }
 
-#monitor, #content {
+main {
+  width: 100vw;
+  height: 100hw;
+}
+
+#monitor, .crt {
+  width: 800px;
+  height: 600px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: calc(50vh - 300px);
+  left: calc(50vw - 400px);
 }
 
 #monitor {
-  width: 800px;
-  height: 600px;
+  border-radius: 4px;
+  z-index: 10;
   pointer-events: none;
 }
 
 #content {
-  margin-left: 96px;
+  position: relative;
+  margin-left: 8px;
   margin-top: 64px;
   width: 620px;
   max-height: 460px;
@@ -115,6 +125,7 @@ button {
 }
 
 input[type=text] {
+  font-size: large;
   background-color: #00000000;
   border: 0;
   border-bottom: 2px;

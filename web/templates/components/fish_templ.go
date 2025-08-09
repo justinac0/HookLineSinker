@@ -37,12 +37,12 @@ func Fish(fishType common.FishType) templ.Component {
 		}
 		switch fishType {
 		case common.MathFish:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<p>You have a <b>Math</b> fish on the line!</p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-math.png\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<p>You have an <b>Math</b> fish on the line! <span style=\"color: rgb(175, 175, 175);\">(click to catch)</span></p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-math.png\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		case common.EnglishFish:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<p>You have a <b>English</b> Fish on the line!</p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-english.png\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<p>You have an <b>English</b> Fish on the line!  <span style=\"color: rgb(175, 175, 175);\">(click to catch)</span></p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-english.png\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
