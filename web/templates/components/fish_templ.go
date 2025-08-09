@@ -31,18 +31,18 @@ func Fish(fishType common.FishType) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div style=\"position: fixed; top: 0; left: 0;\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"fish-panel\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		switch fishType {
 		case common.MathFish:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<p>You have a Math fish on the line!</p><img hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" class=\"fish\" src=\"static/img/fishing/fish-math.png\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<p>You have a <b>Math</b> fish on the line!</p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-math.png\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		case common.EnglishFish:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<p>You have a English Fish on the line!</p><img hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" class=\"fish\" src=\"static/img/fishing/fish-english.png\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<p>You have a <b>English</b> Fish on the line!</p><img class=\"fish\" hx-get=\"/fight\" hx-trigger=\"click\" hx-target=\"body\" hx-swap=\"outerHTML\" src=\"static/img/fishing/fish-english.png\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

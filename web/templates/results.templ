@@ -1,0 +1,10 @@
+package templates
+
+import "fmt"
+
+templ Results(passed bool) {
+    @MainLayout("Results") {
+        <p>{fmt.Sprintf("%v", passed)}</p>
+        <a hx-get="/waiting" hx-target="body" hx-swap="outerHTML" hx-push-url="/waiting">Return</a>
+    }
+}

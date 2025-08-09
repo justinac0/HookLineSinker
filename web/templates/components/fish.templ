@@ -3,14 +3,14 @@ package components
 import "HookLineSinker/internal/common"
 
 templ Fish(fishType common.FishType) {
-    <div style="position: fixed; top: 0; left: 0;">
+    <div class="fish-panel">
     switch fishType {
         case common.MathFish:
-                <p>You have a Math fish on the line!</p>
-                <img hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" class="fish" src="static/img/fishing/fish-math.png"/>
+            <p>You have a <b>Math</b> fish on the line!</p>
+            <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-math.png"/>
         case common.EnglishFish:
-                <p>You have a English Fish on the line!</p>
-                <img hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" class="fish" src="static/img/fishing/fish-english.png"/>
+            <p>You have a <b>English</b> Fish on the line!</p>
+            <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-english.png"/>
     }
     </div>
 }

@@ -87,8 +87,12 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, components.Fish(fishType))
 	})
 
+	questions := addition.GetQuestions()
 	e.GET("/fight", func(ctx echo.Context) error {
-		return renderTemplate(ctx, templates.ArithmeticQuestions(addition))
+		index := rand.Int() % int(len(questions)-1)
+		question := questions[index]
+
+		return renderTemplate(ctx, templates.ArithmeticQuestions(question))
 	})
 
 	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
@@ -110,10 +114,6 @@ func Setup(e *echo.Echo) {
 			}
 		}
 
-		if passed {
-			return ctx.String(http.StatusOK, "passed")
-		} else {
-			return ctx.String(http.StatusOK, "failed")
-		}
+		return renderTemplate(ctx, templates.Results(passed))
 	})
 }
