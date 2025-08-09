@@ -1,0 +1,62 @@
+#fishing-rod {
+    position: absolute;
+    bottom: -2em;
+    height: 70%;
+    z-index: 100;
+}
+
+#fishing-rod:hover {
+    content: url("static/img/fishing/fishing-rod-selected.png");
+}
+
+#fishing-rod:active {
+    content: url("static/img/fishing/fishing-rod-submerged.png");
+}
+
+#fishing-foreground {
+    position: absolute;
+    bottom: 0; 
+    z-index: 4;
+}
+
+#fishing-bg-1 {
+    position: absolute;
+    bottom: 0; 
+    z-index: 3;
+    animation: slide 8s infinite linear;
+    /* filter: drop-shadow(5px 5px 10px rgba(37, 86, 159, 0.5)); */
+}
+
+#fishing-bg-2 {
+    position: absolute;
+    bottom: 0; 
+    z-index: 2;
+    animation: slide 10s infinite linear;
+    /* filter: drop-shadow(5px 5px 10px rgba(52, 60, 171, 0.1)); */
+}
+
+#fishing-bg-3 {
+    position: absolute;
+    bottom: 0; 
+    z-index: 1;
+    animation: slide 15s infinite linear;
+    /* filter: drop-shadow(5px 5px 10px rgba(20, 56, 66, 0.5)); */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%); 
+    }
+    25% {
+        transform: translateX(-3%); 
+    }
+    50% {
+        transform: translateX(3%); 
+    }
+    75% {
+        transform: translateX(-3%);  
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
