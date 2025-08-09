@@ -1,3 +1,7 @@
+a, p, h1, h2, h3, h4, h5, h6 {
+  z-index: 1000;
+}
+
 body {
     font-family: monospace;
     font-size: xx-large;
@@ -46,8 +50,9 @@ img {
   margin-left: 96px;
   margin-top: 64px;
   width: 620px;
-  max-height: 480px;
+  max-height: 460px;
   overflow: scroll;
+  z-index: 1000;
 }
 
 a {
@@ -89,11 +94,29 @@ button {
   color: #00ff00;
   text-transform: uppercase;
   font-weight: bolder;
+  font-size: large;
+}
+
+input[type=text] {
+  background-color: #00000000;
+  border: 0;
+  border-bottom: 2px;
+  border-style: solid;
+  border-color: #00ff00;
+  color: #00ff00;
+}
+
+button:focus, input[type=text]:focus {
+  outline: none;
+  box-shadow: none;
+  color: #00ff4c;
+  border-color: #00ff00;
+  font-weight: bolder;
 }
 
 @media screen{
-  .crt {
-    animation: scanlines infinite 2s linear;
+  body {
+    animation: scanlines infinite 1s linear;
   }
 } 
 @keyframes scanlines {
@@ -101,6 +124,6 @@ button {
     background-position: 0 0;
   }
   to {
-    background-position: 0 -10px;
+    background-position: 0 -20px;
   }
 }

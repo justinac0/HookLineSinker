@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"HookLineSinker/web/templates"
+	"fmt"
 	"net/http"
 
 	"github.com/a-h/templ"
@@ -21,8 +22,9 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, templates.Waiting())
 	})
 
-	e.GET("/bite", func(ctx echo.Context) error {
-		return ctx.String(http.StatusOK, "not implemented")
+	e.GET("/catch", func(ctx echo.Context) error {
+		fmt.Println("catching")
+		return renderTemplate(ctx, templates.ArithmeticQuestions())
 	})
 
 	e.GET("/fight", func(ctx echo.Context) error {
