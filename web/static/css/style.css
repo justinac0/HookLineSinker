@@ -12,10 +12,10 @@ body {
     height: 100vh;
     background: linear-gradient(to top, #000, #000, #333, #333);
     background-size: cover;
-    background-size: 100% 4px;
-    color: #00ff00;
+    background-size: 100% 5px;
+    color: #00afff;
     font-family: 'Courier New', monospace;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: 0 0 10px #00afff;
     display: flex;
     flex-direction: column;
     filter: blur(0.8px);
@@ -30,6 +30,11 @@ img {
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  image-rendering: pixelated;
+}
+
+.img-opaque {
+  opacity: 0.75;
 }
 
 #monitor {
@@ -43,25 +48,24 @@ img {
 
 #content {
     padding: 4rem;
-    /* margin: 10%; */
 }
 
 a {
     font-weight: bolder;
     text-decoration: none;
     text-transform: uppercase;
-    color: #00ff00;
+    color: #00afff;
 }
 
 a:hover {
-    background-color: #00ff00;
+    background-color: #00afff;
     color: black;
     cursor: pointer;
 }
 
 @media screen{
   .crt {
-    animation: scanlines infinite 55s linear ;
+    animation: scanlines infinite 1s linear;
   }
 } 
 @keyframes scanlines {
@@ -69,6 +73,6 @@ a:hover {
     background-position: 0 0;
   }
   to {
-    background-position: 0 -10px;
+    background-position: 0 -20px;
   }
 }
