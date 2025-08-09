@@ -17,6 +17,10 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, templates.Index())
 	})
 
+	e.GET("/casting", func(ctx echo.Context) error {
+		return ctx.String(http.StatusOK, "not implemented")
+	})
+
 	e.GET("/waiting", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.Waiting())
 	})
@@ -28,7 +32,8 @@ func Setup(e *echo.Echo) {
 	e.GET("/fight", func(ctx echo.Context) error {
 		return renderTemplate(ctx, templates.ArithmeticQuestions())
 	})
-	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
+
+  e.GET("/battle_fish/:id", func(ctx echo.Context) error {
 		return ctx.String(http.StatusOK, "not implemented")
 	})
 
