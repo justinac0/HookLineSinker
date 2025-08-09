@@ -13,7 +13,7 @@ import (
 )
 
 func GenerateArithmeticQuestions() *questions.Grouping {
-	qs := questions.NewGrouping("Addition")
+	qs := questions.NewGrouping("Arithmetic")
 	qs.Add(arithmetic.NewArithmeticQuestion("45+37", "82"))
 	qs.Add(arithmetic.NewArithmeticQuestion("102-68", "34"))
 	qs.Add(arithmetic.NewArithmeticQuestion("14×7", "98"))
@@ -31,6 +31,16 @@ func GenerateArithmeticQuestions() *questions.Grouping {
 	qs.Add(arithmetic.NewArithmeticQuestion("13×12", "156"))
 	qs.Add(arithmetic.NewArithmeticQuestion("360÷9", "40"))
 
+	return qs
+}
+
+func GenerateEnglishQuestions() *questions.Grouping {
+	qs := questions.NewGrouping("Gramma")
+	return qs
+}
+
+func GenerateMusicQuestions() *questions.Grouping {
+	qs := questions.NewGrouping("Notes")
 	return qs
 }
 
