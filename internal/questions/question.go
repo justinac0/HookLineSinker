@@ -44,11 +44,11 @@ func NewMultipleChoiceQuestion(description string, questions []string, answer st
 	}
 }
 
-func NewSingleQuestion(questions []string, answer string) *Question {
+func NewSingleQuestion(question string, answer string) *Question {
 	return &Question{
-		"",
-		questions,
-		answer,
+		description: "",
+		questions:   []string{question},
+		answer:      answer,
 	}
 }
 

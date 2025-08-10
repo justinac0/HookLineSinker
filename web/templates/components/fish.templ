@@ -1,16 +1,22 @@
 package components
 
-import "HookLineSinker/internal/common"
+import (
+    "fmt"
+    "HookLineSinker/internal/common"
+)
 
 templ Fish(fishType common.FishType) {
     <div class="fish-panel">
     switch fishType {
         case common.MathFish:
             <p>You're hooked on a <b>Math</b> fish on the line! <span style="color: rgb(175, 175, 175);">(click to catch)</span></p>
-            <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-math.png"/>
+            <img class="fish" hx-get={fmt.Sprintf("/fight/%d", fishType)} hx-vars={fmt.Sprintf(`"id": "%d"`, fishType)} hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-math.png"/>
         case common.EnglishFish:
             <p>You're hooked on a <b>English</b> Fish on the line!  <span style="color: rgb(175, 175, 175);">(click to catch)</span></p>
-            <img class="fish" hx-get="/fight" hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-english.png"/>
+            <img class="fish" hx-get={fmt.Sprintf("/fight/%d", fishType)} hx-vars={fmt.Sprintf(`"id": "%d"`, fishType)} hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-english.png"/>
+        case common.MusicFish:
+            <p>You're hooked on a <b>Music</b> Fish on the line!  <span style="color: rgb(175, 175, 175);">(click to catch)</span></p>
+            <img class="fish" hx-get={fmt.Sprintf("/fight/%d", fishType)} hx-vars={fmt.Sprintf(`"id": "%d"`, fishType)} hx-trigger="click" hx-target="body" hx-swap="outerHTML" src="static/img/fishing/fish-music.png"/>
     }
     </div>
 }

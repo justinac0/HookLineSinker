@@ -5,29 +5,43 @@ import (
 	"HookLineSinker/internal/questions"
 	"HookLineSinker/web/templates"
 	"HookLineSinker/web/templates/components"
-	"log"
 	"math/rand"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
 )
 
-func GenerateArithmeticQuestions() *questions.QuestionGrouping {
-	qs := questions.NewQuestionGrouping("Arithmetic")
-	qs.Add(questions.NewMultipleChoiceQuestion("Which statement is correct?", []string{"1+1", "test"}, "A"))
+func getMathQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("Math")
+
+	qs.Add(questions.NewSingleQuestion("2/2", "1"))
+	qs.Add(questions.NewMultipleChoiceQuestion("Which statement is correct?", []string{
+		"1+1=1", "1+1=2",
+	}, "B"))
 
 	return qs
 }
 
-func GenerateEnglishQuestions() *questions.QuestionGrouping {
-	qs := questions.NewQuestionGrouping("Gramma")
+func getEnglishQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("English")
+
+	qs.Add(questions.NewSingleQuestion("eng", "ong"))
+	qs.Add(questions.NewMultipleChoiceQuestion("ing ongongongno", []string{
+		"1+1=1", "1+1=2",
+	}, "B"))
+
 	return qs
 }
 
-func GenerateMusicQuestions() *questions.QuestionGrouping {
-	qs := questions.NewQuestionGrouping("Notes")
+func getMusicQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("Music")
+	qs.Add(questions.NewSingleQuestion("eng", "ong"))
+	qs.Add(questions.NewMultipleChoiceQuestion("ing ongongongno", []string{
+		"1+1=1", "1+1=2",
+	}, "B"))
 	return qs
 }
 
@@ -51,7 +65,6 @@ func generateMOTDList() []string {
 }
 
 func Setup(e *echo.Echo) {
-	addition := GenerateArithmeticQuestions()
 	motdList := generateMOTDList()
 
 	e.GET("/motd", func(ctx echo.Context) error {
@@ -72,22 +85,30 @@ func Setup(e *echo.Echo) {
 	})
 
 	e.GET("/catch", func(ctx echo.Context) error {
-		index := rand.Int() % int(common.FishCount-1)
+		index := rand.Int() % int(common.FishCount)
 		fishType := common.FishType(index)
 		return renderTemplate(ctx, components.Fish(fishType))
 	})
 
-	// questions := addition.GetQuestions()
-	e.GET("/fight", func(ctx echo.Context) error {
-		question := addition.GetRandomQuestion()
+	e.GET("/fight/:id", func(ctx echo.Context) error {
+		varID := ctx.QueryParams().Get("id")
+		num, err := strconv.Atoi(varID)
+		if err != nil {
+			return renderTemplate(ctx, templates.Index())
+		}
 
-		log.Println(question)
+		fishType := common.FishType(num)
+		var group *questions.QuestionGrouping
+		switch fishType {
+		case common.EnglishFish:
+			group = getEnglishQuestions()
+		case common.MathFish:
+			group = getMathQuestions()
+		case common.MusicFish:
+			group = getMusicQuestions()
+		}
 
-		return renderTemplate(ctx, templates.Quiz(addition.GetTitle(), question))
-	})
-
-	e.GET("/battle_fish/:id", func(ctx echo.Context) error {
-		return ctx.String(http.StatusOK, "not implemented")
+		return renderTemplate(ctx, templates.Quiz(group.GetTitle(), group.GetRandomQuestion()))
 	})
 
 	e.POST("/results", func(ctx echo.Context) error {
