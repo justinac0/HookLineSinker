@@ -5,7 +5,7 @@ import "fmt"
 templ Results(passed bool) {
     @MainLayout("Results") {
         <div id="content">
-            <a hx-get="/waiting" hx-target="body" hx-swap="outerHTML" hx-push-url="/waiting">Return</a>
+            <a hx-get="/waiting" hx-target="body" hx-swap="outerHTML">Return</a>
             <p>passed = {fmt.Sprintf("%v", passed)}</p>
         </div>
     }

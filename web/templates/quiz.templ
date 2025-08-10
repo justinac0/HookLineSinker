@@ -1,0 +1,24 @@
+package templates
+
+import (
+    "fmt"
+    "HookLineSinker/internal/questions"
+)
+
+templ Quiz(groupTitle string, q questions.IQuestion) {
+    @MainLayout("Fish Quiz!!!") {
+        <div id="content">
+            <h1>{groupTitle}</h1>
+            <form hx-post="/results" hx-trigger="submit" hx-target="body" hx-swap="outerHTML" hx-push-url="/results">
+                // one in q.GetQuestionCount is single ans
+                // more is multiple choice (still single ans a-z)
+                if q.GetQuestionCount() == 1 {
+                    <p>{q.GetQuestions()[0]}=<input type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
+                } else {
+                    <p>multiple choice</p>
+                }
+                <button type="submit">Catch!</button>
+            </form>
+        </div>
+    }
+}

@@ -3,9 +3,9 @@ package handlers
 import (
 	"HookLineSinker/internal/common"
 	"HookLineSinker/internal/questions"
-	"HookLineSinker/internal/questions/arithmetic"
 	"HookLineSinker/web/templates"
 	"HookLineSinker/web/templates/components"
+	"log"
 	"math/rand"
 	"net/http"
 	"strings"
@@ -16,22 +16,7 @@ import (
 
 func GenerateArithmeticQuestions() *questions.Grouping {
 	qs := questions.NewGrouping("Arithmetic")
-	qs.Add(arithmetic.NewArithmeticQuestion("45+37", "82"))
-	qs.Add(arithmetic.NewArithmeticQuestion("102-68", "34"))
-	qs.Add(arithmetic.NewArithmeticQuestion("14×7", "98"))
-	qs.Add(arithmetic.NewArithmeticQuestion("144÷12", "12"))
-	qs.Add(arithmetic.NewArithmeticQuestion("58+26", "84"))
-	qs.Add(arithmetic.NewArithmeticQuestion("300-175", "125"))
-	qs.Add(arithmetic.NewArithmeticQuestion("9×9", "81"))
-	qs.Add(arithmetic.NewArithmeticQuestion("120÷8", "15"))
-	qs.Add(arithmetic.NewArithmeticQuestion("67+45", "112"))
-	qs.Add(arithmetic.NewArithmeticQuestion("500-347", "153"))
-	qs.Add(arithmetic.NewArithmeticQuestion("16×5", "80"))
-	qs.Add(arithmetic.NewArithmeticQuestion("225÷15", "15"))
-	qs.Add(arithmetic.NewArithmeticQuestion("78+99", "177"))
-	qs.Add(arithmetic.NewArithmeticQuestion("250-186", "64"))
-	qs.Add(arithmetic.NewArithmeticQuestion("13×12", "156"))
-	qs.Add(arithmetic.NewArithmeticQuestion("360÷9", "40"))
+	qs.Add(questions.NewQuestion([]string{"1+1"}, "2"))
 
 	return qs
 }
@@ -92,12 +77,13 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, components.Fish(fishType))
 	})
 
-	questions := addition.GetQuestions()
+	// questions := addition.GetQuestions()
 	e.GET("/fight", func(ctx echo.Context) error {
-		index := rand.Int() % int(len(questions)-1)
-		question := questions[index]
+		question := addition.GetRandomQuestion()
 
-		return renderTemplate(ctx, templates.ArithmeticQuestions(question))
+		log.Println(question)
+
+		return renderTemplate(ctx, templates.Quiz(addition.GetTitle(), question))
 	})
 
 	e.GET("/battle_fish/:id", func(ctx echo.Context) error {

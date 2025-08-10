@@ -43,7 +43,7 @@ func Results(passed bool) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><a hx-get=\"/waiting\" hx-target=\"body\" hx-swap=\"outerHTML\" hx-push-url=\"/waiting\">Return</a><p>passed = ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><a hx-get=\"/waiting\" hx-target=\"body\" hx-swap=\"outerHTML\">Return</a><p>passed = ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
