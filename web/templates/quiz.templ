@@ -11,7 +11,7 @@ templ Quiz(groupTitle string, q questions.IQuestion) {
             <h1>{groupTitle}</h1>
             <form hx-post="/results" hx-trigger="submit" hx-target="body" hx-swap="outerHTML" hx-push-url="/results">
                 if q.GetQuestionCount() == 1 {
-                    <p>{ q.GetQuestions()[0] }=<input type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
+                    <p>{ q.GetQuestions()[0] }=<input autofocus type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
                 } else {
                     <h3><i>{ fmt.Sprintf("%v", q.GetDescription()) }</i></h3>
                     for i, item := range q.GetQuestions() {
@@ -25,8 +25,8 @@ templ Quiz(groupTitle string, q questions.IQuestion) {
                                     { fmt.Sprintf(", ") }
                                 }
                             }
-                        ) 
-                        <input class="multiple-choice" type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/>
+                        )
+                        <input autofocus class="multiple-choice" type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/>
                     </p>
                 }
                 <button type="submit">Catch!</button>

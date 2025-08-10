@@ -88,9 +88,10 @@ main {
   position: relative;
   margin-left: 8px;
   margin-top: 64px;
-  width: 620px;
-  max-height: 460px;
+  width: 604px;
+  max-height: 464px;
   overflow: scroll;
+  padding: 16px;
   z-index: 1000;
 }
 
@@ -121,7 +122,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c6edffbb;
+  background: #00ff0090;
 }
 
 ::-webkit-scrollbar-corner {
@@ -152,12 +153,10 @@ input[type=text] {
   color: #00ff00;
 }
 
-button:focus, input[type=text]:focus {
+button:hover, input[type=text]:focus {
   font-size: large;
   outline: none;
   box-shadow: none;
-  color: #00ff4c;
-  border-color: #00ff00;
   font-weight: bolder;
 }
 
@@ -169,7 +168,8 @@ button:hover {
   .crt {
     animation: scanlines infinite 1s linear;
   }
-} 
+}
+
 @keyframes scanlines {
   from {
     background-position: 0 0;

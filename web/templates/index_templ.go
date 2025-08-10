@@ -41,7 +41,7 @@ func Index() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><h1>Hook Line Sinker</h1><img class=\"img-opaque panel\" src=\"static/img/fishing/fish-bucket.png\" width=\"128px\" height=\"auto\"><p>The un-of(fish)al educational game for CN Hackathon 2025!</p><h4>- made by team Ichytyhs (ἰχθύς)</h4><a href=\"/waiting\">Play</a><br><a href=\"/credits\">Credits</a></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><h1>Hook Line Sinker</h1><img class=\"img-opaque panel\" src=\"static/img/fishing/fish-bucket.png\" width=\"128px\" height=\"auto\"><p>The un-of(fish)al educational game for CN Hackathon 2025!</p><h4>--- team Ichytyhs (ἰχθύς) ---</h4><a href=\"/waiting\">Play</a><br><a href=\"/credits\">About Us</a></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
