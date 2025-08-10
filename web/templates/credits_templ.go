@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Results(passed bool) templ.Component {
+func Credits() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -41,28 +41,13 @@ func Results(passed bool) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><a hx-get=\"/waiting\" hx-target=\"body\" hx-swap=\"outerHTML\">Return</a> ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			if passed {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h1>Nice Work! What a catch!</h1><img class=\"img-opaque\" src=\"static/img/fishing/fish-happy.jpg\" width=\"256px\" height=\"256px\">")
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<h1 style=\"color: red;\">Better luck next time!</h1><img class=\"img-opaque\" src=\"static/img/fishing/fish-sad.jpg\" width=\"256px\" height=\"256px\">")
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"content\"><a href=\"/\">Back Home</a><h1>CN 2025 Hackathon Project</h1><h3>-- team Ichytyhs (ἰχθύς) --</h3><div class=\"dp-panel\"><h3>How we met?</h3><p>We all met through a Christian club at QUT, and we all happen to be studying similar things. Given our involvement in CN we thought it would be cool to form a group for this years hackathon.</p></div><br><h1>The Team</h1><div class=\"dp-panel\"><h2>Zara</h2><h3>(Art and Content Writting)</h3><p>I'm a Year 2 CompSci student. I love a good cup of cuppuccino on a Sunday morning before church. Keen to catch bigger fishes in 2025.</p></div><br><div class=\"dp-panel\"><h2>Liam</h2><h3>(Art and Content Writting)</h3><p>I'm a CompSci student who likes to occassionally play drums and guitar. I like to pretend like I read, and am very keen on church!</p></div><br><div class=\"dp-panel\"><h2>Justin</h2><h3>(Programming and Content Writting)</h3><p>5th year CompSci and Physics, love programming, music and hanging out with mates from church. Keen to finish uni this year!!!</p></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = MainLayout("Results").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = MainLayout("Credits").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

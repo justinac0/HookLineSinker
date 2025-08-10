@@ -215,6 +215,10 @@ func Setup(e *echo.Echo) {
 		return renderTemplate(ctx, templates.Waiting())
 	})
 
+	e.GET("/credits", func(ctx echo.Context) error {
+		return renderTemplate(ctx, templates.Credits())
+	})
+
 	e.GET("/catch", func(ctx echo.Context) error {
 		index := rand.Int() % int(common.FishCount)
 		fishType := common.FishType(index)
