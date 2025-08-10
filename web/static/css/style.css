@@ -119,6 +119,10 @@ a:hover {
   background-color: #00000000;
 }
 
+.multiple-choice {
+  max-width: 3ch;
+}
+
 button {
   opacity: 0.5;
   background-color: #00000000;

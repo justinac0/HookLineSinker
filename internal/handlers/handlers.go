@@ -14,20 +14,20 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func GenerateArithmeticQuestions() *questions.Grouping {
-	qs := questions.NewGrouping("Arithmetic")
-	qs.Add(questions.NewQuestion([]string{"1+1"}, "2"))
+func GenerateArithmeticQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("Arithmetic")
+	qs.Add(questions.NewMultipleChoiceQuestion("Which statement is correct?", []string{"1+1", "test"}, "A"))
 
 	return qs
 }
 
-func GenerateEnglishQuestions() *questions.Grouping {
-	qs := questions.NewGrouping("Gramma")
+func GenerateEnglishQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("Gramma")
 	return qs
 }
 
-func GenerateMusicQuestions() *questions.Grouping {
-	qs := questions.NewGrouping("Notes")
+func GenerateMusicQuestions() *questions.QuestionGrouping {
+	qs := questions.NewQuestionGrouping("Notes")
 	return qs
 }
 

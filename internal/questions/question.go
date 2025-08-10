@@ -6,16 +6,18 @@ type IQuestion interface {
 	GetQuestions() []string
 	GetQuestionCount() int
 	GetAnswer() string
+	GetDescription() string
 }
 
-type Grouping struct {
+type QuestionGrouping struct {
 	title        string
 	questionPool []IQuestion
 }
 
 type Question struct {
-	questions []string
-	answer    string
+	description string
+	questions   []string
+	answer      string
 }
 
 func (q *Question) GetQuestions() []string {
@@ -30,43 +32,56 @@ func (q *Question) GetAnswer() string {
 	return q.answer
 }
 
-func NewQuestion(questions []string, answer string) *Question {
+func (q *Question) GetDescription() string {
+	return q.description
+}
+
+func NewMultipleChoiceQuestion(description string, questions []string, answer string) *Question {
 	return &Question{
+		description,
 		questions,
 		answer,
 	}
 }
 
-func NewGrouping(title string) *Grouping {
-	return &Grouping{
+func NewSingleQuestion(questions []string, answer string) *Question {
+	return &Question{
+		"",
+		questions,
+		answer,
+	}
+}
+
+func NewQuestionGrouping(title string) *QuestionGrouping {
+	return &QuestionGrouping{
 		title:        title,
 		questionPool: make([]IQuestion, 0),
 	}
 }
 
-func (g *Grouping) Add(q IQuestion) {
+func (g *QuestionGrouping) Add(q IQuestion) {
 	if g.questionPool == nil {
 		g.questionPool = make([]IQuestion, 0)
 	}
 	g.questionPool = append(g.questionPool, q)
 }
 
-func (g *Grouping) GetTitle() string {
+func (g *QuestionGrouping) GetTitle() string {
 	return g.title
 }
 
-func (g *Grouping) GetQuestionPool() []IQuestion {
+func (g *QuestionGrouping) GetQuestionPool() []IQuestion {
 	if g.GetQuestionCount() == 0 {
 		return nil
 	}
 	return g.questionPool
 }
 
-func (g *Grouping) GetRandomQuestion() IQuestion {
+func (g *QuestionGrouping) GetRandomQuestion() IQuestion {
 	index := rand.Int() % g.GetQuestionCount()
 	return g.GetQuestionPool()[index]
 }
 
-func (g *Grouping) GetQuestionCount() int {
+func (g *QuestionGrouping) GetQuestionCount() int {
 	return len(g.questionPool)
 }

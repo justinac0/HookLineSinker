@@ -10,12 +10,24 @@ templ Quiz(groupTitle string, q questions.IQuestion) {
         <div id="content">
             <h1>{groupTitle}</h1>
             <form hx-post="/results" hx-trigger="submit" hx-target="body" hx-swap="outerHTML" hx-push-url="/results">
-                // one in q.GetQuestionCount is single ans
-                // more is multiple choice (still single ans a-z)
                 if q.GetQuestionCount() == 1 {
-                    <p>{q.GetQuestions()[0]}=<input type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
+                    <p>{ q.GetQuestions()[0] }=<input type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/></p>
                 } else {
-                    <p>multiple choice</p>
+                    <h3><i>{ fmt.Sprintf("%v", q.GetDescription()) }</i></h3>
+                    for i, item := range q.GetQuestions() {
+                        <p>{ fmt.Sprintf("%c) %v", i+'A', item) }</p>
+                    }
+                    <p>
+                        Enter Answer: (
+                            for i := range q.GetQuestionCount() {
+                                    { fmt.Sprintf("%c", i+'A') }
+                                if i != q.GetQuestionCount()-1{
+                                    { fmt.Sprintf(", ") }
+                                }
+                            }
+                        ) 
+                        <input class="multiple-choice" type="text" autocomplete="off" name={ fmt.Sprintf("%s", q.GetAnswer()) }/>
+                    </p>
                 }
                 <button type="submit">Catch!</button>
             </form>
