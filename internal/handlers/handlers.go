@@ -28,10 +28,81 @@ func getMathQuestions() *questions.QuestionGrouping {
 func getEnglishQuestions() *questions.QuestionGrouping {
 	qs := questions.NewQuestionGrouping("English")
 
-	qs.Add(questions.NewSingleQuestion("eng", "ong"))
-	qs.Add(questions.NewMultipleChoiceQuestion("ing ongongongno", []string{
-		"1+1=1", "1+1=2",
+	qs.Add(questions.NewMultipleChoiceQuestion("What is the plural of “mouse”?", []string{
+		"Mouses", "Mouse", "Mice",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following word is a verb?", []string{
+		"Walk", "Pink", "Water Bottle",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What is the opposite of the word “day”?", []string{
+		"Blue", "Night", "Days",
 	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “banana”", []string{
+		"1", "2", "3",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “musical”", []string{
+		"1", "2", "3",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What is the plural of “child”", []string{
+		"Childs", "Children", "Child",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “statement”", []string{
+		"1", "2", "3",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “bottle”", []string{
+		"1", "2", "3",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following is the correct spelling:", []string{
+		"Neccessary", "Necessary", " Necassory",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following is the correct spelling:", []string{
+		"Believe", "Beleive", " Bilieve",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following is the correct spelling:", []string{
+		"Broccoli", "Brocoli", " Broccolli",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “Broccoli”:", []string{
+		"1", "2", "3",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “Seperate”:", []string{
+		"1", "2", "3",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following is a verb", []string{
+		"Direction", "Swim", "Fried Chicken",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “Directory”:", []string{
+		"2", "3", "4",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many syllables are in the word “Mackerel”:", []string{
+		"2", "3", "4",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What is the synonym “Clever”:", []string{
+		"Intelligent", "Interesting", "Clown",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following word is a noun", []string{
+		"Lion", "Run", "Route",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of the following word is a noun", []string{
+		"Table", "Sing", "Fast",
+	}, "A"))
 
 	return qs
 }
