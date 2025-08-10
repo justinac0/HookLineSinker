@@ -17,12 +17,37 @@ import (
 func getMathQuestions() *questions.QuestionGrouping {
 	qs := questions.NewQuestionGrouping("Math")
 
-	qs.Add(questions.NewSingleQuestion("2/2", "1"))
-	qs.Add(questions.NewMultipleChoiceQuestion("Which statement is correct?", []string{
-		"1+1=1", "1+1=2",
-	}, "B"))
+	qs.Add(questions.NewSingleQuestion("6 x 6 ", "36"))
 
+	qs.Add(questions.NewSingleQuestion("81 ÷ 9 ", "9"))
+
+	qs.Add(questions.NewSingleQuestion("87 + 6 ", "93"))
+
+	qs.Add(questions.NewSingleQuestion("90 - 18 ", "72"))
+
+	qs.Add(questions.NewSingleQuestion("80 - 27 ", "53"))
+
+	qs.Add(questions.NewSingleQuestion("70 + 2 ", "72"))
+
+	qs.Add(questions.NewSingleQuestion("90 ÷ 6 ", "15"))
+
+	qs.Add(questions.NewSingleQuestion("45 ÷ 9 ", "5"))
+
+	qs.Add(questions.NewSingleQuestion("50 ÷ 5 ", "10"))
+
+	qs.Add(questions.NewSingleQuestion("67 + 17 ", "84"))
+
+	qs.Add(questions.NewSingleQuestion("9 x 8 ", "72"))
+
+	qs.Add(questions.NewSingleQuestion("56 ÷ 7 ", "8"))
+
+	qs.Add(questions.NewSingleQuestion("64 ÷ 8 ", "8"))
+
+	qs.Add(questions.NewSingleQuestion("56 - 19 ", "37"))
+
+	qs.Add(questions.NewSingleQuestion("95 + 7 ", "102"))
 	return qs
+
 }
 
 func getEnglishQuestions() *questions.QuestionGrouping {
@@ -109,11 +134,46 @@ func getEnglishQuestions() *questions.QuestionGrouping {
 
 func getMusicQuestions() *questions.QuestionGrouping {
 	qs := questions.NewQuestionGrouping("Music")
+
 	qs.Add(questions.NewSingleQuestion("eng", "ong"))
-	qs.Add(questions.NewMultipleChoiceQuestion("ing ongongongno", []string{
-		"1+1=1", "1+1=2",
+	qs.Add(questions.NewMultipleChoiceQuestion("How many strings does a standard guitar have?", []string{
+		"6", "7", "8",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which of these is the highest singing voice?", []string{
+		"Soprano", "Bass", "Alto",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What do musicians read to play music?", []string{
+		"Map", "Music notes", "Recipe",
 	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which family of instruments does the trumpet belong to?", []string{
+		"String", "Brass", "Percussion",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which instrument do you blow air into to play?", []string{
+		"Violin", "Flute", "Guitar",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What do you call the speed of the music?", []string{
+		"Tempo", "Volume", "Melody",
+	}, "A"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("How many beats does a whole note usually get?", []string{
+		"2", "4", "8",
+	}, "B"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("Which instrument has strings and is played with a bow?", []string{
+		"Flute", "Drum", "Violin",
+	}, "C"))
+
+	qs.Add(questions.NewMultipleChoiceQuestion("What do we call a group of people singing together?", []string{
+		"Band", "Choir", "Orchestra",
+	}, "B"))
+
 	return qs
+
 }
 
 func renderTemplate(ctx echo.Context, component templ.Component) error {
